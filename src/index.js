@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Register from "./components/Register";
 import Login from "./components/Login";
+import AdminLogin from "./components/AdminLogin";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {
     Navbar,
@@ -54,7 +55,7 @@ class App extends React.Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/adminlogin">AdminLogin</Nav.Link>
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>
                             <Nav.Link as={Link} to="/register">Registration</Nav.Link>
                         </Nav>
@@ -69,6 +70,7 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/adminlogin" component={AdminLogin} />
                     </Switch>
                 </div>
                 </div>

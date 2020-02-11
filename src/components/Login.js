@@ -13,7 +13,6 @@ export default class Login extends Component {
             password: '',
         }
     }
-
     UserNameHandler = (e) => {
         this.setState({ name:e.target.value});
     }
