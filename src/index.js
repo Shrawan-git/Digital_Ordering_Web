@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Register from "./components/Register";
-import Login from "./components/Login";
-import AdminLogin from "./components/AdminLogin";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
+import UserDashboard from "./components/UserDashboard/UserDashboard";
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {
     Navbar,
@@ -71,6 +73,7 @@ class App extends React.Component {
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/adminlogin" component={AdminLogin} />
+                        <Route exact path="/userdashboard" component={UserDashboard} />
                     </Switch>
                 </div>
                 </div>
