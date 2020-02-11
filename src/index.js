@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Register from "./components/Register";
+import Login from "./components/Login";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {
     Navbar,
@@ -67,6 +68,7 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path="/register" component={Register} />
+                        <Route exact path="/login" component={Login} />
                     </Switch>
                 </div>
                 )
