@@ -29,7 +29,7 @@ export default class AdminLogin extends Component {
             isOnline:true
         }
         console.log(admin);
-        axios.post('http://localhost:3024/admin/login', admin)
+        axios.post('http://localhost:3024/admin/loginadmin', admin)
         .then((response) => {
             console.log(response.data);
             localStorage.setItem('token', response.data.token)
