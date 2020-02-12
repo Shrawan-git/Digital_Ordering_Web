@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Input, Container, FormText } from 'reactstrap'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, Route } from 'react-router-dom'
 import axios from 'axios'
+import Header from "../Header/Header"
 
 export default class Register extends Component {
 
@@ -72,7 +73,9 @@ export default class Register extends Component {
     };
     render() {
         return (
-            <Container>
+            <React.Fragment>
+                <Route component = {Header} />
+                <Container>
                 <h2>Sign Up</h2>
                 <Form onSubmit={this.submitHandlerUser}>
                     <FormGroup>
@@ -118,6 +121,8 @@ export default class Register extends Component {
                     <FormText>Already a user? <Link to='/'> Login here!</Link></FormText>
                 </Form>
             </Container>
+            </React.Fragment>
+            
         )
     }
 }
