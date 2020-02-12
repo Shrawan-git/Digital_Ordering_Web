@@ -14,7 +14,7 @@ import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 function Routes(){
     return(
         <>
-        <Router>
+<Router>
 <Switch>
 <Route exact path="/" component={Register} />
 <Route exact path="/register" component={Register} />

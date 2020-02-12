@@ -10,6 +10,15 @@ module.exports = {
         filename: "main.js"
     }, module: {
         rules: [
+
+            {
+                test: /\.(jpg|gif|png|svg)$/,
+                use: 
+                {
+                  loader: 'url-loader',
+                  }
+            },
+
             {
                 test: /\.js$/,
                 exclude: /node_modules/,

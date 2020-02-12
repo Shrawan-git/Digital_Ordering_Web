@@ -45,7 +45,5 @@ export default class AdminHeader extends React.Component {
                 </div>
                 </div>
         )
-    }
- 
-      
+    }     
 }
