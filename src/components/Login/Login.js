@@ -34,7 +34,7 @@ export default class Login extends Component {
         .then((response) => {
             console.log(response.data);
             localStorage.setItem('token', response.data.token)
-            //location.href = "/login";rajibsth
+            location.href = "./userdashboard";
         }).catch((err) => {console.log(err)})
     };
 

@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import UserDashboard from "./components/UserDashboard/UserDashboard";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
+import UserForm from "./components/UserForm/UserForm";
 
 function Routes(){
     return(
@@ -21,6 +22,7 @@ function Routes(){
 <Route exact path="/login" component={Login} />
 <Route exact path="/adminlogin" component={AdminLogin} />
 <Route exact path="/admindashboard" component={AdminDashboard} />
+<Route exact path="/userform" component={UserForm} />
 <Route exact path="/userdashboard" component={UserDashboard} />
 </Switch>
 </Router>

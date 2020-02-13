@@ -34,7 +34,7 @@ export default class AdminLogin extends Component {
         .then((response) => {
             console.log(response.data);
             localStorage.setItem('token', response.data.token)
-            //location.href = "/login";rajibsth
+            location.href = "/admindashboard";
         }).catch((err) => {console.log(err)})
     };
 
