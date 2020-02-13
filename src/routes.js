@@ -12,8 +12,10 @@ import UserDashboard from "./components/UserDashboard/UserDashboard";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import UserForm from "./components/UserForm/UserForm";
 import OrderForm from "./components/OrderForm/OrderForm";
+import FeedbackForm from './components/Feedback/Feedback';
 import UserRoute from "./components/PrivateRoute/UserRoute";
 import AdminRoute from "./components/PrivateRoute/AdminRoute";
+
 
 function Routes(){
     return(
@@ -27,6 +29,7 @@ function Routes(){
 <AdminRoute exact path="/admindashboard" component={AdminDashboard} />
 <Route exact path="/userform" component={UserForm} />
 <Route exact path="/orderform" component={OrderForm} />
+<Route exact path="/feedbackform" component={FeedbackForm} />
 <UserRoute exact path="/userdashboard" component={UserDashboard} />
 </Switch>
 </Router>

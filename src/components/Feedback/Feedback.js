@@ -8,27 +8,24 @@ import Header from '../Header/AdminHeader'
 import { Container } from 'reactstrap'
 import Axios from 'axios';
 
-class UserForm extends React.Component {
+class FeedbackForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            users: [],
-
+            feedbacks: [],
             config: {
                 headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
             },
             selectedUsersData:{}
     }
-   
     }
-
     componentDidMount(){
         Axios.get(
-            "http://localhost:3024/admin/userlist",
+            "http://localhost:3024/rating",
             this.state.config
         ).then((response) => {
             this.setState({
-                users: response.data
+                feedbacks: response.data
             });
             console.log(response.data)
 
@@ -37,16 +34,16 @@ class UserForm extends React.Component {
         })
     }
 
-    handleDelete = (userId) => {
-        const filteredUser = this.state.users.filter((user)=> {
-            return user._id !== userId
+    handleDelete = (feedbackId) => {
+        const filteredOrder = this.state.feedbacks.filter((feedback)=> {
+            return feedback._id !== feedbackId
         })
         this.setState({
-            users: filteredUser
+            feedbacks: filteredOrder
         })
-        console.log(userId.fullname);
+        console.log(feedbackId.rate);
         Axios.delete(
-            `http://localhost:3024/admin/${userId}`,
+            `http://localhost:3024/rating/${feedbackId}`,
             this.state.config
         ).then((response) => {
             console.log(response)
@@ -60,30 +57,24 @@ class UserForm extends React.Component {
       <React.Fragment>
       <Route component = {Header} />
       <Container>
-                <h2>User details</h2>
+                <h2>Feedback details</h2>
                 <Table>
                     <thead>
                         <tr>
-                            <th>Fullname</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Gender</th>
+                            <th>Rate</th>
+                            <th>Feedback</th>
                             <th>Delete</th>
                             
                         </tr>
                     </thead> 
                     <tbody>
                         {
-                            this.state.users.map((user) => {
+                            this.state.feedbacks.map((feedback) => {
                                 return (
-                                    <tr key={user._id}>
-                                        <td>{user.fullname}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.phone}</td>
-                                        <td>{user.gender}</td>
-                                        <td><Button onClick={() => this.handleDelete(user._id)}>Delete</Button></td>
+                                    <tr key={feedback._id}>
+                                        <td>{feedback.rate}</td>
+                                        <td>{feedback.feedback}</td>
+                                        <td><Button onClick={() => this.handleDelete(feedback._id)}>Delete</Button></td>
                                     </tr>
                                 )
                             })
@@ -96,4 +87,4 @@ class UserForm extends React.Component {
     };
   };
 
-  export default UserForm;
+  export default FeedbackForm;

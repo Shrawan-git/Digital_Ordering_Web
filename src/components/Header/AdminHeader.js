@@ -32,7 +32,7 @@ export default class AdminHeader extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/">Users</Nav.Link>
-                            <Nav.Link as={Link} to="/">Orders</Nav.Link>
+                            <Nav.Link as={Link} to="/orderform">Orders</Nav.Link>
                             <Nav.Link as={Link} to="/">Ratings</Nav.Link>
                         </Nav>
                         <Form inline>
