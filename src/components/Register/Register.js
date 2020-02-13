@@ -67,7 +67,7 @@ export default class Register extends Component {
         axios.post('http://localhost:3024/user/signup', dataUser)
             .then((response) => {
                 console.log(response.data);
-                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('usertoken', response.data.token)
                 //location.href = "/login";
             }).catch((err) => { console.log(err) })
     };

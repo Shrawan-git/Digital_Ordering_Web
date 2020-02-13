@@ -33,8 +33,8 @@ export default class Login extends Component {
         axios.post('http://localhost:3024/user/login', user)
         .then((response) => {
             console.log(response.data);
-            localStorage.setItem('token', response.data.token)
-            location.href = "./userdashboard";
+            localStorage.setItem('usertoken', response.data.token)
+            location.href = "/userdashboard";
         }).catch((err) => {console.log(err)})
     };
 
