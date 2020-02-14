@@ -20,6 +20,7 @@ export default class OrderForm extends React.Component {
                 headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
             },
             show: false,
+            showAddModal: false, 
             selectedOrderData:{}
     }
     }
@@ -39,9 +40,30 @@ export default class OrderForm extends React.Component {
         })
     }
 
+    handleAdd = (e) => {
+        e.preventDefault();
+        var addFood = {
+            foodName: this.state.foodName,
+            foodPrice: this.state.foodPrice,
+            foodCategory: this.state.foodCategory,
+            foodDescription: this.state.foodDescription
+        }
+        Axios.post(
+            "http://localhost:3024/order",
+            addFood,
+            this.state.config
+        ).then((response) => {
+            console.log(response.data);
+            location.href = "/orderform"
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     handleClose = () => {
         this.setState({
             show: false,
+            showAddModal:false
             
         })
     }
@@ -67,6 +89,12 @@ export default class OrderForm extends React.Component {
             location.href = "/orderform"
         }).catch((err) => {
             console.log(err)
+        })
+    }
+
+    handleAddFood = () => {
+        this.setState({
+            showAddModal: true
         })
     }
 
@@ -104,6 +132,20 @@ export default class OrderForm extends React.Component {
         this.setState({selectedOrderData:{...this.state.selectedOrderData,["foodDescription"]: e.target.value}})
     }
 
+    foodNameHandler = (e) => {
+        this.setState({foodName: e.target.value})
+    }
+
+    foodPriceHandler = (e) => {
+        this.setState({foodPrice: e.target.value})
+    }
+    foodCategoryHandler = (e) => {
+        this.setState({foodCategory: e.target.value})
+    }
+    foodDescriptionHandler = (e) => {
+        this.setState({foodDescription: e.target.value})
+    }
+
     render() {
     return (
       <React.Fragment>
@@ -119,6 +161,7 @@ export default class OrderForm extends React.Component {
                             <th>foodDescription</th>
                             <th>Delete</th>
                             <th>Update</th>
+                            <th>Add Food</th>
                             
                         </tr>
                     </thead> 
@@ -133,6 +176,7 @@ export default class OrderForm extends React.Component {
                                         <td>{order.foodDescription}</td>
                                         <td><Button onClick={() => this.handleDelete(order._id)}>Delete</Button></td>
                                         <td><Button onClick={() => this.handleOpen(order._id)}>update</Button></td>
+                                        <td><Button onClick={this.handleAddFood}>add</Button></td>
                                     </tr>
                                 )
                             })
@@ -164,6 +208,37 @@ export default class OrderForm extends React.Component {
                             Close
                         </Button>
                         <Button variant="success" onClick={() => this.handleUpdate(this.state.selectedOrderData._id)}>
+                            Update
+                        </Button>
+                    </Modal.Footer>
+
+                    //for adding food
+                </Modal>
+                <Modal show={this.state.showAddModal} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add Food</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group controlId="formFoodname">
+                                <Form.Control type="text" placeholder="Food name" value={this.state.foodName} onChange={this.foodNameHandler} />
+                            </Form.Group>
+                            <Form.Group controlId="formFoodprice">
+                                <Form.Control type="text" placeholder="Food price" value={this.state.foodPrice} onChange={this.foodPriceHandler} />
+                            </Form.Group>
+                            <Form.Group controlId="formFoodcategory">
+                                <Form.Control type="text" placeholder="Food category" value={this.state.foodCategory} onChange={this.foodCategoryHandler} />
+                            </Form.Group>
+                            <Form.Group controlId="formFooddescription">
+                                <Form.Control type="text" placeholder="Food description" value={this.state.foodDescription} onChange={this.foodDescriptionHandler} />
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="success" onClick={this.handleAdd}>
                             Update
                         </Button>
                     </Modal.Footer>
