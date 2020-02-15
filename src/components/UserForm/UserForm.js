@@ -60,10 +60,10 @@ class UserForm extends React.Component {
       <React.Fragment>
       <Route component = {Header} />
       <Container>
-                <h2>User details</h2>
+                <h2 className="maintitle">User Details</h2>
                 <Table>
                     <thead>
-                        <tr>
+                        <tr className="title">
                             <th>Fullname</th>
                             <th>Username</th>
                             <th>Email</th>
@@ -77,13 +77,13 @@ class UserForm extends React.Component {
                         {
                             this.state.users.map((user) => {
                                 return (
-                                    <tr key={user._id}>
+                                    <tr className="data" key={user._id}>
                                         <td>{user.fullname}</td>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.phone}</td>
                                         <td>{user.gender}</td>
-                                        <td><Button onClick={() => this.handleDelete(user._id)}>Delete</Button></td>
+                                        <td><Button className="orderbutton" onClick={() => this.handleDelete(user._id)}>Delete</Button></td>
                                     </tr>
                                 )
                             })

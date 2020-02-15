@@ -68,6 +68,21 @@ export default class UserOrder extends React.Component {
         })
     }
 
+    handleFavourite = (productorder) => {
+        console.log(this.state.lists)
+        Axios.post(
+            "http://localhost:3024/favourite",
+            this.state.selectedData,
+            this.state.config
+
+        ).then((response) => {
+            console.log(response.data);
+            location.href = "/userorder"
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     render() {
         return (
           <React.Fragment>
@@ -82,6 +97,7 @@ export default class UserOrder extends React.Component {
                                 <th>Food Category</th>
                                 <th>Food Description</th>
                                 <th>Order Food</th>
+                                <th>Favourite Food</th>
                             </tr>
                         </thead> 
                         <tbody>
@@ -94,6 +110,7 @@ export default class UserOrder extends React.Component {
                                             <td>{list.foodCategory}</td>
                                             <td>{list.foodDescription}</td>
                                             <td><Button className="orderbutton"onClick={() => this.handleOpen(list._id)}>Order</Button></td>
+                                            <td><Button className="orderbutton"onClick={() => this.handleOpen(list._id)}>Favourite</Button></td>
                                         </tr>
                                     )
                                 })
@@ -116,7 +133,7 @@ export default class UserOrder extends React.Component {
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.handleClose}>Cancel</Button>
                             <Button variant="success" onClick={() => this.handleOrder(this.state.selectedData._id)}>Order</Button>
-                            {/* <Button variant="success" onClick={() => this.cartHandler(this.state.selectedData._id)}>Add to Favourite</Button> */}
+                            <Button variant="success" onClick={() => this.handleFavourite(this.state.selectedData._id)}>Add to Favourite</Button> 
                         </Modal.Footer>
                     </Modal>         
             </Container>

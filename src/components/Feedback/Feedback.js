@@ -57,10 +57,10 @@ class FeedbackForm extends React.Component {
       <React.Fragment>
       <Route component = {Header} />
       <Container>
-                <h2>Feedback details</h2>
+                <h2 className="maintitle">Feedback Details</h2>
                 <Table>
                     <thead>
-                        <tr>
+                        <tr className="title">
                             <th>Rate</th>
                             <th>Feedback</th>
                             <th>Delete</th>
@@ -71,10 +71,10 @@ class FeedbackForm extends React.Component {
                         {
                             this.state.feedbacks.map((feedback) => {
                                 return (
-                                    <tr key={feedback._id}>
+                                    <tr className="data" key={feedback._id}>
                                         <td>{feedback.rate}</td>
                                         <td>{feedback.feedback}</td>
-                                        <td><Button onClick={() => this.handleDelete(feedback._id)}>Delete</Button></td>
+                                        <td><Button className="orderbutton" onClick={() => this.handleDelete(feedback._id)}>Delete</Button></td>
                                     </tr>
                                 )
                             })

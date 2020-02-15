@@ -75,8 +75,8 @@ export default class Register extends Component {
         return (
             <React.Fragment>
                 <Route component = {Header} />
-                <Container>
-                <h2>Sign Up</h2>
+                <Container className="border">
+                <h2 className="front">Sign Up</h2>
                 <Form onSubmit={this.submitHandlerUser}>
                     <FormGroup>
                         <Label for='fullname'>Full Name</Label>
@@ -117,7 +117,7 @@ export default class Register extends Component {
                         <Input type='cpassword' name='cpassword' id='cpassword'
                             value={this.state.cpassword} onChange={this.userCPasswordHandler} required/>
                     </FormGroup>
-                    <Button color='primary' onClick={this.register}>Sign Up</Button>
+                    <Button className="button"color='primary' onClick={this.register}><span>Sign Up</span></Button>
                     <FormText>Already a user? <Link to='/'> Login here!</Link></FormText>
                 </Form>
             </Container>

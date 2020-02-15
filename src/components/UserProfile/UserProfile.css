@@ -29,12 +29,13 @@ label{
 
 .image{
     position: absolute;
-    top: 80px;
+    top: 110px;
     right: 0;
-    margin-right: 120px;
+    margin-right: 160px;
     left: 4;
     width: 200px;
     height: 200px;
+
 }
 
 .button span {

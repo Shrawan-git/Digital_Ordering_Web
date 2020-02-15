@@ -149,32 +149,31 @@ export default class OrderForm extends React.Component {
       <React.Fragment>
       <Route component = {Header} />
       <Container>
-                <h2>Order details</h2>
+                <h2 className="maintitle">Order Details</h2>
                 <Table>
                     <thead>
-                        <tr>
-                            <th>foodName</th>
-                            <th>foodPrice</th>
-                            <th>foodCategory</th>
-                            <th>foodDescription</th>
+                        <tr className="title">
+                            <th>FoodName</th>
+                            <th>FoodPrice</th>
+                            <th>FoodCategory</th>
+                            <th>FoodDescription</th>
                             <th>Delete</th>
                             <th>Update</th>
-                            <th>Add Food</th>
-                            
+                            <th><Button onClick={this.handleAddFood}>Add</Button></th>
                         </tr>
                     </thead> 
                     <tbody>
                         {
                             this.state.orders.map((order) => {
                                 return (
-                                    <tr key={order._id}>
+                                    <tr className="data" key={order._id}>
                                         <td>{order.foodName}</td>
                                         <td>{order.foodPrice}</td>
                                         <td>{order.foodCategory}</td>
                                         <td>{order.foodDescription}</td>
-                                        <td><Button onClick={() => this.handleDelete(order._id)}>Delete</Button></td>
-                                        <td><Button onClick={() => this.handleOpen(order._id)}>update</Button></td>
-                                        <td><Button onClick={this.handleAddFood}>add</Button></td>
+                                        <td><Button className="orderbutton" onClick={() => this.handleDelete(order._id)}>Delete</Button></td>
+                                        <td><Button className="orderbutton" onClick={() => this.handleOpen(order._id)}>update</Button></td>
+                                        <td></td>
                                     </tr>
                                 )
                             })

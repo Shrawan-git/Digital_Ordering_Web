@@ -42,8 +42,8 @@ export default class AdminLogin extends Component {
         return(
             <React.Fragment>
             <Route component = {Header} />
-            <Container>
-                <h2>Admin Sign in</h2>
+            <Container className="border">
+                <h2 className="front">Admin Sign in</h2>
                 <Form onSubmit={this.submitHandlerAdmin}>
                     <FormGroup>
                         <Label for='Username'>Username</Label>
@@ -55,7 +55,7 @@ export default class AdminLogin extends Component {
                         <Input type='password' name='password' id='password'
                             value={this.state.password} onChange={this.AdminPasswordHandler} />
                     </FormGroup>
-                    <Button color='primary' onClick={this.login}>Sign In</Button>
+                    <Button className="button" color='success' onClick={this.login}><span>Sign In</span></Button>
                     <FormText>Have not signed up? <Link to='/'> sign up here!</Link></FormText>
                     </Form>
                     </Container>

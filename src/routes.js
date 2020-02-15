@@ -17,6 +17,7 @@ import UserRoute from "./components/PrivateRoute/UserRoute";
 import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserProfile from "./components/UserProfile/UserProfile";
 import UserOrder from "./components/UserOrder/UserOrder";
+import OrderList from "./components/OrderList/OrderList";
 
 
 function Routes(){
@@ -33,6 +34,7 @@ function Routes(){
 <AdminRoute exact path="/userform" component={UserForm} />
 <AdminRoute exact path="/orderform" component={OrderForm} />
 <AdminRoute exact path="/feedbackform" component={FeedbackForm} />
+<AdminRoute exact path="/orderlist" component={OrderList} />
 
 <UserRoute exact path="/userprofile" component={UserProfile} />
 <UserRoute exact path="/userorder" component={UserOrder} />

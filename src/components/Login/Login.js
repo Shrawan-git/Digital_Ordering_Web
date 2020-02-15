@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input, Container, FormText } from 'reac
 import { Link, Redirect,Route } from 'react-router-dom'
 import axios from 'axios'
 import Header from "../Header/Header"
+import "./Login.css"
 
 export default class Login extends Component {
 
@@ -42,8 +43,8 @@ export default class Login extends Component {
         return(
             <React.Fragment>
             <Route component = {Header} />
-            <Container>
-                <h2>Sign in</h2>
+            <Container className="border">
+                <h2 className="front">Sign In</h2>
                 <Form onSubmit={this.submitHandlerUser}>
                     <FormGroup>
                         <Label for='Username'>Username</Label>
@@ -55,7 +56,7 @@ export default class Login extends Component {
                         <Input type='password' name='password' id='password'
                             value={this.state.password} onChange={this.PasswordHandler} />
                     </FormGroup>
-                    <Button color='primary' onClick={this.login}>Sign In</Button>
+                    <Button className="button" color='success' onClick={this.login}><span>Sign In</span></Button>
                     <FormText>Have not signed up? <Link to='/'> sign up here!</Link></FormText>
                     </Form>
                     </Container>
