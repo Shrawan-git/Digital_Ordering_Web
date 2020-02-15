@@ -23,6 +23,12 @@ export default class AdminHeader extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        location.href = '/login'
+    }
     render(){
         return (
             <div>
@@ -31,9 +37,10 @@ export default class AdminHeader extends React.Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link as={Link} to="/">Users</Nav.Link>
+                            <Nav.Link as={Link} to="/userform">Users</Nav.Link>
                             <Nav.Link as={Link} to="/orderform">Orders</Nav.Link>
-                            <Nav.Link as={Link} to="/">Ratings</Nav.Link>
+                            <Nav.Link as={Link} to="/feedbackform">Ratings</Nav.Link>
+                            <Nav.Link onClick = {this.handleLogout}>Logout</Nav.Link>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
