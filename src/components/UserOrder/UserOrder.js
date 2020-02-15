@@ -6,12 +6,13 @@ import {
 import { Route } from 'react-router-dom'
 import Header from '../Header/UserHeader'
 import Axios from 'axios';
+import './UserOrder.css';
 
 export default class UserOrder extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            orders: [],
+            lists: [],
             foodName: "",
             foodPrice: "",
             foodCategory:"",
@@ -20,7 +21,7 @@ export default class UserOrder extends React.Component {
                 headers: {"Authorization": `Bearer ${localStorage.getItem("usertoken")}`}
             },
             show: false,
-            selectedOrderData:{}
+            selectedData:{}
     }
     }
     componentDidMount(){
@@ -29,7 +30,7 @@ export default class UserOrder extends React.Component {
             this.state.config
         ).then((response) => {
             this.setState({
-                orders: response.data
+                lists: response.data
             });
             console.log(response.data)
         }).catch((err) => {
@@ -37,16 +38,26 @@ export default class UserOrder extends React.Component {
         })
     }
 
-    handleAdd = (e) => {
-        var addFood = {
-            foodName: this.state.foodName,
-            foodPrice: this.state.foodPrice,
-            foodCategory: this.state.foodCategory
-        }
-        console.log(addFood);
+    handleOpen = (productid) => {
+        this.setState({
+            show: true,
+            selectedData: this.state.lists.find((list) => {
+                return list._id === productid
+            })
+        })
+    }
+
+    handleClose = () => {
+        this.setState({
+            show: false
+        })
+    }
+
+    handleOrder = (productorder) => {
+        console.log(this.state.lists)
         Axios.post(
             "http://localhost:3024/userorder",
-            addFood,
+            this.state.selectedData,
             this.state.config
 
         ).then((response) => {
@@ -57,48 +68,57 @@ export default class UserOrder extends React.Component {
         })
     }
 
-    foodNameHandler = (e) => {
-        this.setState({foodName: e.target.value})
-    }
-    foodPriceHandler = (e) => {
-        this.setState({foodPrice: e.target.value})
-    }
-    foodCategoryHandler = (e) => {
-        this.setState({foodCategory: e.target.value})
-    }
-
     render() {
         return (
           <React.Fragment>
           <Route component = {Header} />
           <Container>
-                    <h2>Order details</h2>
+                    <h2 className="maintitle">Food Menu</h2>
                     <Table>
                         <thead>
-                            <tr>
-                                <th>foodName</th>
-                                <th>foodPrice</th>
-                                <th>foodCategory</th>
-                                <th>foodDescription</th>
+                            <tr className = "title">
+                                <th>Food Name</th>
+                                <th>Food Price</th>
+                                <th>Food Category</th>
+                                <th>Food Description</th>
                                 <th>Order Food</th>
                             </tr>
                         </thead> 
                         <tbody>
                             {
-                                this.state.orders.map((order) => {
+                                this.state.lists.map((list) => {
                                     return (
-                                        <tr key={order._id}>
-                                            <td>{order.foodName}</td>
-                                            <td>{order.foodPrice}</td>
-                                            <td>{order.foodCategory}</td>
-                                            <td>{order.foodDescription}</td>
-                                            <td><Button onClick={this.handleAdd(order._id)}>Order</Button></td>
+                                        <tr className="data"key={list._id}>
+                                            <td>{list.foodName}</td>
+                                            <td>{list.foodPrice}</td>
+                                            <td>{list.foodCategory}</td>
+                                            <td>{list.foodDescription}</td>
+                                            <td><Button className="orderbutton"onClick={() => this.handleOpen(list._id)}>Order</Button></td>
                                         </tr>
                                     )
                                 })
                             }
                         </tbody>
                     </Table>
+
+                    <Modal show={this.state.show} onHide={this.handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Confirm Order</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form>
+                                <Form.Control type="text" defaultValue={this.state.selectedData.foodName} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedData.foodPrice} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedData.foodCategory} /><br></br>
+                                <Form.Control type="text" defaultValue={this.state.selectedData.foodDescription} />
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={this.handleClose}>Cancel</Button>
+                            <Button variant="success" onClick={() => this.handleOrder(this.state.selectedData._id)}>Order</Button>
+                            {/* <Button variant="success" onClick={() => this.cartHandler(this.state.selectedData._id)}>Add to Favourite</Button> */}
+                        </Modal.Footer>
+                    </Modal>         
             </Container>
       </React.Fragment>
     );

@@ -20,8 +20,7 @@ class AdminDashboard extends React.Component {
   <Card.Body>
     <Card.Title>Users</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+     Check your users 
     </Card.Text>
     <Button variant="white" href="/userform">View users</Button>
   </Card.Body>
@@ -30,12 +29,11 @@ class AdminDashboard extends React.Component {
 <Card bg="primary" text="white" style={{ width: '18rem' }}>
   <Card.Img variant="top" src={Image} />
   <Card.Body>
-    <Card.Title>Orders</Card.Title>
+    <Card.Title>Products</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      Handle your products
     </Card.Text>
-    <Button variant="white" href="/orderform">View orders</Button>
+    <Button variant="white" href="/orderform">View Products</Button>
   </Card.Body>
 </Card>
  
@@ -44,8 +42,7 @@ class AdminDashboard extends React.Component {
   <Card.Body>
     <Card.Title>Feedbacks</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+     Check what your users have things to say about your products 
     </Card.Text>
     <Button variant="white" href="/feedbackform">Feedbacks</Button>
   </Card.Body>

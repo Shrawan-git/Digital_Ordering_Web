@@ -38,7 +38,7 @@ export default class AdminHeader extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/userform">Users</Nav.Link>
-                            <Nav.Link as={Link} to="/orderform">Orders</Nav.Link>
+                            <Nav.Link as={Link} to="/orderform">Products</Nav.Link>
                             <Nav.Link as={Link} to="/feedbackform">Ratings</Nav.Link>
                             <Nav.Link onClick = {this.handleLogout}>Logout</Nav.Link>
                         </Nav>

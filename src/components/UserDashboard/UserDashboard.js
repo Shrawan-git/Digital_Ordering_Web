@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import Notifications from "./Notifications";
-import List from '../Project/List'
 import { Route } from 'react-router-dom'
 import Header from '../Header/UserHeader'
 
@@ -10,6 +8,7 @@ import {
   } from 'react-bootstrap';
 
 import Image from '../images/rating.png';
+import ImageProfile from '../images/profilefront.jpg';
 import SlideOne from '../images/slide1.jpg';
 import SlideTwo from '../images/slide2.jpg';
 import SlideThree from '../images/slide3.jpg';
@@ -19,7 +18,6 @@ class UserDashboard extends Component {
         return (
           <React.Fragment>
           <Route component = {Header} />
-    
           <Carousel className= "slider">
       <Carousel.Item>
         <img
@@ -56,12 +54,11 @@ class UserDashboard extends Component {
     
     <CardDeck className = "layout">
           <Card bg="danger" text="white" style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={Image} />
+      <Card.Img variant="top" src={ImageProfile} />
       <Card.Body>
-        <Card.Title>Users</Card.Title>
+        <Card.Title>My Profile</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
+          Check your profile
         </Card.Text>
         <Button variant="white" href="/userprofile">View users</Button>
       </Card.Body>
@@ -70,12 +67,11 @@ class UserDashboard extends Component {
     <Card bg="primary" text="white" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={Image} />
       <Card.Body>
-        <Card.Title>Orders</Card.Title>
+        <Card.Title>Food Menu</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
+          Order some food
         </Card.Text>
-        <Button variant="white">View orders</Button>
+        <Button variant="white" href="/userorder">View Menu</Button>
       </Card.Body>
     </Card>
      
@@ -83,10 +79,9 @@ class UserDashboard extends Component {
     <Card bg="secondary" text="white" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={Image} />
       <Card.Body>
-        <Card.Title>Feedbacks</Card.Title>
+        <Card.Title>Favourites</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
+          See your favourite meals
         </Card.Text>
         <Button variant="white">Feedbacks</Button>
       </Card.Body>

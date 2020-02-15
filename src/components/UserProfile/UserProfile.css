@@ -1,0 +1,63 @@
+.head{
+    font-style: oblique;
+    color: cadetblue;
+    margin: 20px;
+    border: darkgoldenrod;
+    font-size: 50px;
+}
+
+p{
+    font-stretch: semi-expanded;
+    font-size: large;
+    margin-left: 20px;
+    font-style: normal;
+    border:  2px, solid;
+}
+
+label{
+    color: steelblue;
+    font-family: cursive;
+    margin-left: 20px;
+
+}
+
+.border{
+    border: 2px, solid black;
+    border-width: medium;
+    border-radius: 8px;
+}
+
+.image{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin-right: 120px;
+    left: 4;
+    width: 200px;
+    height: 200px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

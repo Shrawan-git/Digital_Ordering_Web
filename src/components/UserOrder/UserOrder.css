@@ -1,0 +1,17 @@
+.title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    background-color: whitesmoke;
+}
+
+.maintitle{
+    font-weight: bold;
+}
+
+.orderbutton{
+    background-color: royalblue;
+}
+
+.data{
+    font-family: 'Times New Roman', Times, serif;
+}

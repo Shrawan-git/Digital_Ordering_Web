@@ -6,6 +6,9 @@ import {
 import { Route } from 'react-router-dom'
 import Header from '../Header/UserHeader'
 import Axios from 'axios';
+import { Label } from 'reactstrap';
+import './UserProfile.css';
+import Image from '../images/profile.png';
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -83,31 +86,22 @@ class UserProfile extends React.Component {
         return (
             <React.Fragment>
                 <Route component={Header} />
-                <Container>
-                    <h2>User details</h2>
-                    <Table>
-                        <thead>
-                            <tr>
-                                 <th>Fullname</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Gender</th>
-                                <th>Update</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                                    <tr>
-                                    <td>{this.state.userprofile.fullname}</td>
-                                    <td>{this.state.userprofile.name}</td>
-                                    <td>{this.state.userprofile.email}</td>
-                                    <td>{this.state.userprofile.phone}</td>
-                                    <td>{this.state.userprofile.gender}</td>
-                                    <td><Button onClick={() => this.handleOpen(this.state.userprofile)}>update</Button></td>
-                                </tr>
-                        </tbody>
-                    </Table>
+                <Container >
+                    <div className="border">
+                    <img className = "image" src={Image} />
+                    <h2 className="head">My Profile</h2>  
+                                 <Label>Fullname</Label>
+                                 <p>{this.state.userprofile.fullname}</p>
+                                <Label>Username</Label>
+                                <p>{this.state.userprofile.name}</p>
+                                <Label>Email</Label>
+                                <p>{this.state.userprofile.email}</p>
+                                <Label>Phone</Label>
+                                <p>{this.state.userprofile.phone}</p>
+                                <Label>Gender</Label>
+                                <p>{this.state.userprofile.gender}</p>
+                                    <p><Button className = "button" onClick={() => this.handleOpen(this.state.userprofile)}><span>Update</span></Button></p>
+                                    </div>
                     <Modal show={this.state.show} onHide={this.handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Update User</Modal.Title>
