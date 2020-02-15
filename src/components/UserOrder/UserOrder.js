@@ -4,7 +4,7 @@ import {
   CardSubtitle, CardBody, Carousel, Table, Modal, Form
   } from 'react-bootstrap';
 import { Route } from 'react-router-dom'
-import Header from '../Header/AdminHeader'
+import Header from '../Header/UserHeader'
 import Axios from 'axios';
 
 export default class UserOrder extends React.Component {

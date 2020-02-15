@@ -28,12 +28,14 @@ function Routes(){
 <Route exact path="/register" component={Register} />
 <Route exact path="/login" component={Login} />
 <Route exact path="/adminlogin" component={AdminLogin} />
+
 <AdminRoute exact path="/admindashboard" component={AdminDashboard} />
-<Route exact path="/userform" component={UserForm} />
-<Route exact path="/orderform" component={OrderForm} />
-<Route exact path="/feedbackform" component={FeedbackForm} />
-<Route exact path="/userprofile" component={UserProfile} />
-<Route exact path="/userorder" component={UserOrder} />
+<AdminRoute exact path="/userform" component={UserForm} />
+<AdminRoute exact path="/orderform" component={OrderForm} />
+<AdminRoute exact path="/feedbackform" component={FeedbackForm} />
+
+<UserRoute exact path="/userprofile" component={UserProfile} />
+<UserRoute exact path="/userorder" component={UserOrder} />
 <UserRoute exact path="/userdashboard" component={UserDashboard} />
 </Switch>
 </Router>

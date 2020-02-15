@@ -23,6 +23,13 @@ export default class UserHeader extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('usertoken');
+        location.href = '/login'
+    }
+
     render(){
         return (
             <div>
@@ -33,6 +40,7 @@ export default class UserHeader extends React.Component {
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/userprofile">View profile</Nav.Link>
                             <Nav.Link as={Link} to="/">Order List</Nav.Link>
+                            <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
