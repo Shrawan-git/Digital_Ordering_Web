@@ -172,7 +172,7 @@ export default class OrderForm extends React.Component {
                                         <td>{order.foodCategory}</td>
                                         <td>{order.foodDescription}</td>
                                         <td><Button className="orderbutton" onClick={() => this.handleDelete(order._id)}>Delete</Button></td>
-                                        <td><Button className="orderbutton" onClick={() => this.handleOpen(order._id)}>update</Button></td>
+                                        <td><Button className="orderbutton" onClick={() => this.handleOpen(order._id)}>Update</Button></td>
                                         <td></td>
                                     </tr>
                                 )
@@ -181,7 +181,7 @@ export default class OrderForm extends React.Component {
                     </tbody>
                 </Table>
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className="modaltitle"  closeButton>
                         <Modal.Title>Update User</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -208,11 +208,11 @@ export default class OrderForm extends React.Component {
                             Update
                         </Button>
                     </Modal.Footer>
-
-                    //for adding food
                 </Modal>
+
+                //adding food
                 <Modal show={this.state.showAddModal} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className="modaltitle" closeButton>
                         <Modal.Title>Add Food</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>

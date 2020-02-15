@@ -103,7 +103,7 @@ class UserProfile extends React.Component {
                                     <p><Button className = "button" onClick={() => this.handleOpen(this.state.userprofile)}><span>Update</span></Button></p>
                                     </div>
                     <Modal show={this.state.show} onHide={this.handleClose}>
-                        <Modal.Header closeButton>
+                        <Modal.Header className="modaltitle" closeButton>
                             <Modal.Title>Update User</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>

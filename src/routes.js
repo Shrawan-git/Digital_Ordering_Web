@@ -18,6 +18,7 @@ import AdminRoute from "./components/PrivateRoute/AdminRoute";
 import UserProfile from "./components/UserProfile/UserProfile";
 import UserOrder from "./components/UserOrder/UserOrder";
 import OrderList from "./components/OrderList/OrderList";
+import Favourite from "./components/Favourite/Favourite";
 
 
 function Routes(){
@@ -39,6 +40,7 @@ function Routes(){
 <UserRoute exact path="/userprofile" component={UserProfile} />
 <UserRoute exact path="/userorder" component={UserOrder} />
 <UserRoute exact path="/userdashboard" component={UserDashboard} />
+<UserRoute exact path="/favourite" component={Favourite} />
 </Switch>
 </Router>
 </>

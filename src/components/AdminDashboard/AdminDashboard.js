@@ -19,8 +19,7 @@ class AdminDashboard extends React.Component {
   <Card.Img variant="top" src={Image} />
   <Card.Body>
     <Card.Title>Users</Card.Title>
-    <Card.Text>
-     Check your users 
+    <Card.Text>Check your users 
     </Card.Text>
     <Button variant="white" href="/userform">View users</Button>
   </Card.Body>
@@ -30,8 +29,7 @@ class AdminDashboard extends React.Component {
   <Card.Img variant="top" src={Image} />
   <Card.Body>
     <Card.Title>Products</Card.Title>
-    <Card.Text>
-      Handle your products
+    <Card.Text>Handle your products
     </Card.Text>
     <Button variant="white" href="/orderform">View Products</Button>
   </Card.Body>
@@ -41,8 +39,7 @@ class AdminDashboard extends React.Component {
   <Card.Img variant="top" src={Image} />
   <Card.Body>
     <Card.Title>Feedbacks</Card.Title>
-    <Card.Text>
-     Check what your users have things to say about your products 
+    <Card.Text>Check what your users have things to say about your products 
     </Card.Text>
     <Button variant="white" href="/feedbackform">Feedbacks</Button>
   </Card.Body>

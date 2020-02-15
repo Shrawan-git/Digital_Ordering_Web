@@ -34,12 +34,13 @@ export default class UserHeader extends React.Component {
         return (
             <div>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="#home">Digital Order</Navbar.Brand>
+                    <Navbar.Brand href="/userdashboard">Digital Order</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/userprofile">View profile</Nav.Link>
                             <Nav.Link as={Link} to="/userorder">Products</Nav.Link>
+                            <Nav.Link as={Link} to="/favourite">Favourites</Nav.Link>
                             <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
                         </Nav>
                         <Form inline>

@@ -84,7 +84,7 @@ class UserDashboard extends Component {
         <Card.Text>
           See your favourite meals
         </Card.Text>
-        <Button variant="white">Feedbacks</Button>
+        <Button variant="white" href="/favourite">View Favourites</Button>
       </Card.Body>
     </Card>
       </CardDeck>

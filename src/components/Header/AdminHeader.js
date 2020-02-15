@@ -33,14 +33,14 @@ export default class AdminHeader extends React.Component {
         return (
             <div>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="#home">Digital Order</Navbar.Brand>
+                    <Navbar.Brand href="/admindashboard">Digital Order</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link as={Link} to="/userform">Users</Nav.Link>
                             <Nav.Link as={Link} to="/orderform">Products</Nav.Link>
                             <Nav.Link as={Link} to="/feedbackform">Ratings</Nav.Link>
-                            <Nav.Link as={Link} to="/feedbackform">Ratings</Nav.Link>
+                            <Nav.Link as={Link} to="/orderlist">OrderList</Nav.Link>
                             <Nav.Link onClick = {this.handleLogout}>Logout</Nav.Link>
                         </Nav>
                         <Form inline>
