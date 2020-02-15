@@ -4,7 +4,7 @@ import {
   CardSubtitle, CardBody, Carousel, Table, Modal, Form
   } from 'react-bootstrap';
 import { Route } from 'react-router-dom'
-import Header from '../Header/AdminHeader'
+import Header from '../Header/UserHeader'
 import Axios from 'axios';
 
 export default class OrderForm extends React.Component {
@@ -64,10 +64,8 @@ export default class OrderForm extends React.Component {
         this.setState({
             show: false,
             showAddModal:false
-            
         })
     }
-
     handleOpen = (orderId) => {
         this.setState({
             show:true,

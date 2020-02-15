@@ -31,7 +31,7 @@ export default class UserHeader extends React.Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link as={Link} to="/">View products</Nav.Link>
+                            <Nav.Link as={Link} to="/userprofile">View profile</Nav.Link>
                             <Nav.Link as={Link} to="/">Order List</Nav.Link>
                         </Nav>
                         <Form inline>

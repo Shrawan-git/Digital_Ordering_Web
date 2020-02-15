@@ -15,6 +15,8 @@ import OrderForm from "./components/OrderForm/OrderForm";
 import FeedbackForm from './components/Feedback/Feedback';
 import UserRoute from "./components/PrivateRoute/UserRoute";
 import AdminRoute from "./components/PrivateRoute/AdminRoute";
+import UserProfile from "./components/UserProfile/UserProfile";
+import UserOrder from "./components/UserOrder/UserOrder";
 
 
 function Routes(){
@@ -30,6 +32,8 @@ function Routes(){
 <Route exact path="/userform" component={UserForm} />
 <Route exact path="/orderform" component={OrderForm} />
 <Route exact path="/feedbackform" component={FeedbackForm} />
+<Route exact path="/userprofile" component={UserProfile} />
+<Route exact path="/userorder" component={UserOrder} />
 <UserRoute exact path="/userdashboard" component={UserDashboard} />
 </Switch>
 </Router>
