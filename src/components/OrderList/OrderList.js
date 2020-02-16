@@ -19,14 +19,13 @@ export default class OrderList extends React.Component {
             config: {
                 headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
             },
-            show: false,
             selectedOrderData:{}
     }
     }
 
     componentDidMount(){
         Axios.get(
-            "http://localhost:3024/userorder",
+            "http://localhost:3024/userorder/list",
             this.state.config
         ).then((response) => {
             this.setState({
