@@ -31,7 +31,6 @@ export default class AddProduct extends Component {
     foodDescriptionHandler = (e) => {
         this.setState({ foodDescription: e.target.value })
     }
-    
     handelFileSelect = (e) =>{
         this.setState({
             file: e.target.files[0]
@@ -77,15 +76,15 @@ export default class AddProduct extends Component {
                     <Row>
                         <Col md="4">
                             <Form onSubmit={this.submitHandler}>
-                                <p className="h5 text-center mb-4">Add Product</p>
-                                <input label="Foodname" placeholder="Foodname" type="text" value={this.state.foodName} onChange={this.foodNameHandler} required /><br></br>
-                                <input label="Foodprice" placeholder="Foodprice" type="text" value={this.state.foodPrice} onChange={this.foodPriceHandler} required /><br></br>
+                                <p className="head">Add Product</p>
+                                <input label="Foodname" className="textstyle" placeholder="Foodname" type="text" value={this.state.foodName} onChange={this.foodNameHandler} required /><br></br>
+                                <input label="Foodprice" placeholder="Foodprice" className="textstyle" type="text" value={this.state.foodPrice} onChange={this.foodPriceHandler} required /><br></br>
                                 <p>Choose a Category :</p>
                                 <input type="radio" name="pizza" value="pizza" checked={this.state.foodCategory === 'pizza'} onChange={this.foodCategoryHandler} /> pizza<br></br>
                                 <input type="radio" name="burger" value="burger" checked={this.state.foodCategory === 'burger'} onChange={this.foodCategoryHandler} /> burger<br></br>
                                 <input type="radio" name="salad" value="salad" checked={this.state.foodCategory === 'salad'} onChange={this.foodCategoryHandler} /> salad<br></br>
                                 <input type="radio" name="seafood" value="seafood" checked={this.state.foodCategory === 'seafood'} onChange={this.foodCategoryHandler} /> seafood<br></br>
-                                <input label="Fooddescription" placeholder="Fooddescription" type="text" value={this.state.foodDescription} onChange={this.foodDescriptionHandler} required />
+                                <input label="Fooddescription" className="textstyle" placeholder="Fooddescription" type="text" value={this.state.foodDescription} onChange={this.foodDescriptionHandler} required />
                                 <input type="file" name="image" onChange={this.handelFileSelect}/><br></br>
 
                                 <Button type="submit" color="primary" onClick={this.addProduct}>Post</Button>

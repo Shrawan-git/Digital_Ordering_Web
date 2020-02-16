@@ -40,26 +40,6 @@ export default class OrderForm extends React.Component {
         })
     }
 
-    handleAdd = (e) => {
-        e.preventDefault();
-        var addFood = {
-            foodName: this.state.foodName,
-            foodPrice: this.state.foodPrice,
-            foodCategory: this.state.foodCategory,
-            foodDescription: this.state.foodDescription
-        }
-        Axios.post(
-            "http://localhost:3024/order",
-            addFood,
-            this.state.config
-        ).then((response) => {
-            console.log(response.data);
-            location.href = "/orderform"
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
-
     handleClose = () => {
         this.setState({
             show: false,
@@ -87,12 +67,6 @@ export default class OrderForm extends React.Component {
             location.href = "/orderform"
         }).catch((err) => {
             console.log(err)
-        })
-    }
-
-    handleAddFood = () => {
-        this.setState({
-            showAddModal: true
         })
     }
 
@@ -159,7 +133,7 @@ export default class OrderForm extends React.Component {
                             <th>FoodDescription</th>
                             <th>Delete</th>
                             <th>Update</th>
-                            <th><Button onClick={this.handleAddFood}>Add</Button></th>
+                        
                         </tr>
                     </thead> 
                     <tbody>
@@ -182,7 +156,7 @@ export default class OrderForm extends React.Component {
                 </Table>
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header className="modaltitle"  closeButton>
-                        <Modal.Title>Update User</Modal.Title>
+                        <Modal.Title>Update Food</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
@@ -210,7 +184,7 @@ export default class OrderForm extends React.Component {
                     </Modal.Footer>
                 </Modal>
 
-                //adding food
+             
                 <Modal show={this.state.showAddModal} onHide={this.handleClose}>
                     <Modal.Header className="modaltitle" closeButton>
                         <Modal.Title>Add Food</Modal.Title>

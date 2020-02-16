@@ -34,6 +34,16 @@ class AdminDashboard extends React.Component {
     <Button variant="white" href="/orderform">View Products</Button>
   </Card.Body>
 </Card>
+
+<Card bg="primary" text="white" style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={Image} />
+  <Card.Body>
+    <Card.Title>Add Product</Card.Title>
+    <Card.Text>Add new products to the menu 
+    </Card.Text>
+    <Button variant="white" href="/addproduct">Add Product</Button>
+  </Card.Body>
+</Card>
  
 <Card bg="primary" text="white" style={{ width: '18rem' }}>
   <Card.Img variant="top" src={Image} />
@@ -44,6 +54,8 @@ class AdminDashboard extends React.Component {
     <Button variant="white" href="/feedbackform">Feedbacks</Button>
   </Card.Body>
 </Card>
+
+
   </CardDeck>
  
      </React.Fragment>

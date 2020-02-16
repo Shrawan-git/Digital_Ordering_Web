@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
     }
     componentDidMount() {
         Axios.get(
-            "http://localhost:3024/user/me",
+            "http://localhost:3024/user/profile",
             this.state.config
         ).then((response) => {
             this.setState({
